@@ -1,8 +1,38 @@
+/**
+ * Application secrets configuration
+ *
+ * All sensitive values are loaded from environment variables.
+ * Never hardcode secrets in this file.
+ *
+ * Required environment variables:
+ * - MONGOHQ_URL or MONGODB: Database connection string
+ * - SESSION_SECRET: Secret for session signing
+ * - COOKIE_SECRET: Secret for cookie signing
+ *
+ * See sample.env for all available configuration options.
+ */
+
+const requiredEnvVars = ['MONGOHQ_URL', 'MONGODB'];
+const missingVars = requiredEnvVars.filter(
+  varName => !process.env[varName]
+);
+
+if (missingVars.length > 0 && process.env.NODE_ENV !== 'test') {
+  console.warn(
+    `Warning: Missing required environment variables: ${missingVars.join(', ')}. ` +
+    'Database functionality may be limited.'
+  );
+}
+
 module.exports = {
 
   db: process.env.MONGODB || process.env.MONGOHQ_URL,
 
-  sessionSecret: process.env.SESSION_SECRET,
+  sessionSecret: process.env.SESSION_SECRET || (
+    process.env.NODE_ENV === 'development'
+      ? 'development-secret-change-in-production'
+      : undefined
+  ),
 
   facebook: {
     clientID: process.env.FACEBOOK_ID,
@@ -41,7 +71,12 @@ module.exports = {
     scope: ['r_basicprofile', 'r_emailaddress'],
     passReqToCallback: true
   },
+
   slackHook: process.env.SLACK_WEBHOOK,
 
-  cookieSecret: process.env.COOKIE_SECRET
+  cookieSecret: process.env.COOKIE_SECRET || (
+    process.env.NODE_ENV === 'development'
+      ? 'development-cookie-secret-change-in-production'
+      : undefined
+  )
 };
