@@ -90,3 +90,48 @@ pm2.js
 
 # Debug
 lib-cov
+
+# Lock files (use package-lock.json)
+package-lock.json
+yarn.lock
+bun.lockb
+pnpm-lock.yaml
+
+# Test coverage
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js (if used in future)
+.next/
+out/
+
+# Environment-specific
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache directories
+.npm/
+.eslintcache
+.stylelintcache
+.cache/
+
+# JetBrains IDEs
+*.ipr
+
+# Visual Studio Code
+*.code-workspace
+
+# macOS
+*.dylib
+
+# Windows
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Docker
+docker-compose.override.yml

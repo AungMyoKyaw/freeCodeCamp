@@ -21,6 +21,8 @@ You start by working through our self-paced, browser-based full stack JavaScript
 - [Found a Bug?](#found-a-bug)
 - [Contributing](#contributing)
 - [Development Setup](#development-setup)
+- [Project Structure](#project-structure)
+- [Available Scripts](#available-scripts)
 - [Security](#security)
 - [License](#license)
 
@@ -137,6 +139,47 @@ For detailed setup instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
+## Project Structure
+
+```
+freeCodeCamp/
+├── client/              # Frontend React application
+│   ├── less/            # LESS stylesheets
+│   ├── epics/           # Redux observables
+│   └── utils/           # Client utilities
+├── common/              # Shared code between client and server
+│   ├── app/             # Application components and routes
+│   ├── models/          # Data models
+│   └── utils/           # Shared utilities
+├── server/              # Backend LoopBack/Express server
+│   ├── boot/            # Server initialization scripts
+│   ├── middlewares/     # Express middlewares
+│   ├── models/          # Server models
+│   ├── resources/       # Static resources
+│   ├── services/        # Backend services
+│   ├── utils/           # Server utilities
+│   └── views/           # Jade templates
+├── seed/                # Database seed data and challenges
+├── config/              # Configuration files
+├── public/              # Static assets
+└── test/                # Test files
+```
+
+---
+
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server |
+| `npm run build` | Build for production |
+| `npm test` | Run all tests |
+| `npm run lint` | Lint JavaScript and JSON files |
+| `npm run only-once` | Initialize database with seed data |
+| `gulp` | Start development server with hot reload |
+
+---
+
 ## Security
 
 ### Reporting Security Issues
@@ -159,3 +202,9 @@ The content of this repository is bound by the following licenses:
 
 - The computer software is licensed under the [BSD-3-Clause](./LICENSE.md).
 - The curricular content in the `./seed/challenges` directory and our wiki are licensed under the [CC-BY-SA-4.0](./LICENSE-freeCodeCamp-Curriculum.md).
+
+---
+
+## Code of Conduct
+
+This project follows the [freeCodeCamp Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to support@freecodecamp.org.
